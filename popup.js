@@ -178,6 +178,11 @@ document.getElementById('modalidade').onchange = function() {
 	});
 }
 
+function sleepFor( sleepDuration ){
+    var now = new Date().getTime();
+    while(new Date().getTime() < now + sleepDuration){ /* faça nada */ } 
+}
+
 // coloca o botão na extensão
 document.write("<button id='mybutton'>Preencher jogos</button>");
 var button = document.getElementById('mybutton');
@@ -213,7 +218,9 @@ button.onclick = function() {
         } else {
 		for(var i = 0;i < lines.length;i++){
 			marcaJogo( lines[i], quantidadeAMarcar, qtdTeimosa, marcaEspelho );
+			sleepFor(250); //mileseg
 		};
         }
     }
+    alert("Processamento concluído!");
 }
